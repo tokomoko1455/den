@@ -26,7 +26,7 @@
       }
     </style>
   </head>
-  <body>
+    <body>
     <div id="map"></div>
     <td><div id="sidebar"></div></td>
     <script src="constants.js"></script>
@@ -36,6 +36,7 @@
       var marker = [];
       var infoWindow = [];
       var windowOpened;
+      var marker1;
 
       function parseData(data) {
         var keys = data.values[0];
@@ -53,6 +54,15 @@
       }
 
       function initMap() {
+         if (!navigator.geolocation) {
+        alert('Geolocation APIに対応していません');
+        return false;
+           
+              // 現在地の取得
+    navigator.geolocation.getCurrentPosition(function(position) {
+        // 緯度経度の取得
+        latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude); 
+           
         var target = document.getElementById('map');
         var centerp = {lat: 32.398178, lng: 130.201399};
 
@@ -61,6 +71,18 @@
           zoom: 11,
         });
 
+          // マーカーの追加
+        marker1 = new google.maps.Marker({
+            position: latLng,
+            map: map
+        });
+    }, function() {
+        alert('位置情報取得に失敗しました');
+    });
+}      
+          
+        
+        
         var request = new XMLHttpRequest();
         request.open('GET', `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/sheet1?key=${API_KEY}`, true);
         request.responseType = 'json';
