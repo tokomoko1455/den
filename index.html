@@ -56,18 +56,16 @@
 
 function initMap() {       
         var target = document.getElementById('map');
+	navigator.geolocation.getCurrentPosition(function(position) {
+        // 緯度経度の取得
+  　　  var latlng1 = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+	
         var centerp = {lat: 32.398178, lng: 130.201399};
 
         map = new google.maps.Map(target, {
           center: centerp,
           zoom: 13,
         });
-
-
-	
-　　navigator.geolocation.getCurrentPosition(function(position) {
-        // 緯度経度の取得
-    var latlng1 = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 
   　var mark = new google.maps.Marker({
     position: latlng1,
