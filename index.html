@@ -73,6 +73,12 @@ function initMap() {
     position: latlng1,
     map: map
   });
+	
+ 　　map = new google.maps.Map(target, {
+          center: centerp,
+          
+        });	  
+	  
 }, function() {
         alert('位置情報取得に失敗しました');
     });
