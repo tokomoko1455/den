@@ -52,35 +52,21 @@
         return markerData;
       }
 
-function initMap(){
-  var target = document.getElementById("map");
-　var centerp = {lat: 32.398178, lng: 130.201399};
-  if (!navigator.geolocation){//Geolocation apiがサポートされていない場合
-    output.innerHTML = "<p>Geolocationはあなたのブラウザーでサポートされておりません</p>";
-    return;
-	    map = new google.maps.Map(target, {
-          center: centerp,
-          zoom: 11,   
- });
-				      
-  function success(position) {
-    var latitude  = position.coords.latitude;//緯度
-    var longitude = position.coords.longitude;//経度
-    output.innerHTML = '<p>緯度 ' + latitude + '° <br>経度 ' + longitude + '°</p>';
-    // 位置情報
-    var latlng1 = new google.maps.LatLng(32.398178,130.201399) ;
+function initMap() {       
+        var target = document.getElementById('map');
+        var centerp = {lat: 32.398178, lng: 130.201399};
 
-});
-    // マーカーの新規出力
+        map = new google.maps.Map(target, {
+          center: centerp,
+          zoom: 11,
+        });
+        
+　　var latlng1 = new google.maps.LatLng(32.398178,130.201399) ;
   　var mark = new google.maps.Marker({
     position: latlng1,
     map: map
-  });  };
-  function error() {
-    //エラーの場合
-    output.innerHTML = "座標位置を取得できません";
-  };
-  navigator.geolocation.getCurrentPosition(success, error);//成功と失敗を判断
+  });
+
 
 	
         var request = new XMLHttpRequest();
