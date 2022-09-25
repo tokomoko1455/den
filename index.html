@@ -61,6 +61,12 @@
           zoom: 11,
         });
         
+　　var latlng1 = new google.maps.LatLng(32.398178,130.201399) ;
+  　var mark = new google.maps.Marker({
+    position: latlng1,
+    map: map
+  }); 
+	
         var request = new XMLHttpRequest();
         request.open('GET', `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/sheet1?key=${API_KEY}`, true);
         request.responseType = 'json';
@@ -71,15 +77,7 @@
           setData(markerData);
         };
 
-        request.send();
-        
-    var latlng1 = new google.maps.LatLng(32.398178,130.201399) ;
-  　var mark = new google.maps.Marker({
-    position: latlng1,
-    map: map
-  }); 
-	      
-	      
+        request.send(); 
 }
       
       function addMarker(i, data) {
