@@ -73,7 +73,6 @@
 
         request.send();
         
-   function success() {
     var latitude  = position.coords.latitude;//緯度
     var longitude = position.coords.longitude;//経度
   
@@ -81,8 +80,7 @@
   　var marker1 = new google.maps.Marker({
     position: m_latlng1,
     map: map
-  });
-}     
+  }); 
 }
 
   
