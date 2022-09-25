@@ -54,23 +54,23 @@
 
 function initMap(){
   var target = document.getElementById("map");
-var centerp = {lat: 32.398178, lng: 130.201399};
+　var centerp = {lat: 32.398178, lng: 130.201399};
   if (!navigator.geolocation){//Geolocation apiがサポートされていない場合
     output.innerHTML = "<p>Geolocationはあなたのブラウザーでサポートされておりません</p>";
     return;
-  }
+	    map = new google.maps.Map(target, {
+          center: centerp,
+          zoom: 11,   
+ });
+				      
   function success(position) {
     var latitude  = position.coords.latitude;//緯度
     var longitude = position.coords.longitude;//経度
     output.innerHTML = '<p>緯度 ' + latitude + '° <br>経度 ' + longitude + '°</p>';
     // 位置情報
     var latlng1 = new google.maps.LatLng(32.398178,130.201399) ;
- 
-    // Google Mapsに書き出し
-    map = new google.maps.Map(target, {
-          center: centerp,
-          zoom: 11, 
-} ) ;
+
+});
     // マーカーの新規出力
   　var mark = new google.maps.Marker({
     position: latlng1,
