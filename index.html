@@ -64,12 +64,17 @@ function initMap() {
     var latitude  = "32.398178";//緯度
     var longitude = "130.201399";//経度   
 	
-　　var latlng1 = new google.maps.LatLng(latitude,longitude) ;
+　　navigator.geolocation.getCurrentPosition(function(position) {
+        // 緯度経度の取得
+    var latlng1 = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+
   　var mark = new google.maps.Marker({
     position: latlng1,
     map: map
   });
-
+}, function() {
+        alert('位置情報取得に失敗しました');
+    });
 
 	
         var request = new XMLHttpRequest();
