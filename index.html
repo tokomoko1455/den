@@ -60,7 +60,7 @@ function initMap() {
         // 緯度経度の取得
   　　  var latlng1 = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 	
-        var centerp = {lat: 32.398178, lng: 130.201399};
+        var centerp = {lat:position.coords.latitude, lng:position.coords.longitude};
 
         map = new google.maps.Map(target, {
           center: centerp,
