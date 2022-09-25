@@ -63,36 +63,24 @@ function initMap() {
           zoom: 13,
         });
 
-	const locationButton = document.createElement("button");
+　const locationButton = document.createElement("button");
 
-  locationButton.textContent = "Pan to Current Location";
+  locationButton.textContent = "P";
   locationButton.classList.add("custom-map-control-button");
   map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
   locationButton.addEventListener("click", () => {
-    // Try HTML5 geolocation.
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          const pos = {
-            lat: position.coords.latitude,
-            lng: position.coords.longitude,
-          };
+    　　navigator.geolocation.getCurrentPosition(function(position2) {
+        // 緯度経度の取得
 
-          infoWindow.setPosition(pos);
-          infoWindow.setContent("Location found.");
-          infoWindow.open(map);
-          map.setCenter(pos);
-        },
-        () => {
-          handleLocationError(true, infoWindow, map.getCenter());
-        }
-      );
-    } else {
-      // Browser doesn't support Geolocation
-      handleLocationError(false, infoWindow, map.getCenter());
-    }
-  });
-	
+　　var centerp2 = {position2.coords.latitude, position2.coords.longitude};
+  　map = new google.maps.Map(target, {
+          center: centerp2,
+         
+        });
+}, function() {
+        alert('位置情報取得に失敗しました');
+    });
+}	
 	
 　　navigator.geolocation.getCurrentPosition(function(position) {
         // 緯度経度の取得
