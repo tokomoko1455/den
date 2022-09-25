@@ -60,8 +60,11 @@ function initMap() {
           center: centerp,
           zoom: 11,
         });
-        
-　　var latlng1 = new google.maps.LatLng(32.398178,130.201399) ;
+	
+    var latitude  = position.coords.latitude;//緯度
+    var longitude = position.coords.longitude;//経度   
+	
+　　var latlng1 = new google.maps.LatLng(latitude,longitude) ;
   　var mark = new google.maps.Marker({
     position: latlng1,
     map: map
