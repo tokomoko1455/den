@@ -58,12 +58,9 @@ function initMap() {
 
         map = new google.maps.Map(target, {
           center: centerp,
-          zoom: 11,
+          zoom: 13,
         });
-	
-    var latitude  = "32.398178";//緯度
-    var longitude = "130.201399";//経度   
-	
+
 　　navigator.geolocation.getCurrentPosition(function(position) {
         // 緯度経度の取得
     var latlng1 = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
