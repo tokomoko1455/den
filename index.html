@@ -73,13 +73,26 @@
 
         request.send();
         
-  　var m_latlng1 = new google.maps.LatLng(32.398178,130.201399);
+   function success(position) {
+    var latitude  = position.coords.latitude;//緯度
+    var longitude = position.coords.longitude;//経度
+
+  
+    var m_latlng1 = new google.maps.LatLng( latitude , longitude ) ;
   　var marker1 = new google.maps.Marker({
     position: m_latlng1,
     map: map
   });
-        
-      }
+     
+     
+  };
+  function error() {
+    //エラーの場合
+    output.innerHTML = "座標位置を取得できません";
+  };
+  navigator.geolocation.getCurrentPosition(success, error);//成功と失敗を判断
+　　}  
+}
 
   
       
