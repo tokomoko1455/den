@@ -59,8 +59,7 @@ function initMap() {
 	navigator.geolocation.getCurrentPosition(function(position) {
         // 緯度経度の取得
   　　  var latlng1 = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-	
-        var centerp = {lat:position.coords.latitude, lng:position.coords.longitude};
+	var centerp = {lat:position.coords.latitude, lng:position.coords.longitude};
 
         map = new google.maps.Map(target, {
           center: centerp,
@@ -68,14 +67,10 @@ function initMap() {
         });
 
    　var mark = new google.maps.Marker({
-    position: latlng1,
-	    title: “サンプル”,
-icon: “https://maps.google.com/mapfiles/ms/icons/blue-dot.png”,
-    map: map
+          position: latlng1,
+	    icon: “https://maps.google.com/mapfiles/ms/icons/red-dot.png”,
+             map: map
   });
-  
-
-
 	
         var request = new XMLHttpRequest();
         request.open('GET', `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/sheet1?key=${API_KEY}`, true);
@@ -93,7 +88,7 @@ icon: “https://maps.google.com/mapfiles/ms/icons/blue-dot.png”,
     });
 }
 	    
-	function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
   infoWindow.setPosition(pos);
   infoWindow.setContent(
     browserHasGeolocation
