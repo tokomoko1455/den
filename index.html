@@ -73,35 +73,15 @@ function initMap() {
       var marker_opts = {};
           marker_opts.map       = map ;
           marker_opts.position  = latlng1 ;
-          marker_opts.title     = mapInfo.title ;
+          marker_opts.title     = "title" ;
           marker_opts.icon      = "http://labs.google.com/ridefinder/images/mm_20_red.png";
           marker_opts.shadow    = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
           marker_opts.animation = google.maps.Animation.DROP ;
 
       var marker = new google.maps.Marker(marker_opts);
+ };
 	  //★★★
-	  MCmarker.push(marker);
-      google.maps.event.addListener(marker, 'rightclick', function(){ 
-showInfoWindow(mapInfo, marker); });
-//クリックされたらズームする処理を追加
-      google.maps.event.addListener(marker, 'click', function(){ 
-                // ズームを変更 参考 http://yasuda.iobb.net/wordpress/?p=6920
-
-               var myPosition = marker.getPosition();
-             // myPosition = marker.getPosition(); でもOK
-                map.setCenter(myPosition);
-                map.setZoom(17);
-
-            }); 
-
-    };
-    
-    //////////////////////////////
-    // InfoWindowを表示
-    //////////////////////////////
-    var infoWindow, infoWindow_opts;
-    var showInfoWindow = function(mapInfo, marker){
-      var content = '';	
+	  
 	
  //   　var mark = new google.maps.Marker({
   //         position: latlng1,
