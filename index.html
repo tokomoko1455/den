@@ -67,8 +67,10 @@ function initMap() {
           zoom: 15,
         });
 
+   var bitmapDescriptor = BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)	
   　var mark = new google.maps.Marker({
     position: latlng1,
+	   icon:bitmapDescriptor,
     map: map
   });
   
