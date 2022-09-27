@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 　　<meta name="viewport"
-  content="width=device-width, initial-scale=1.0, user-scalable=no">  
+    content="width=device-width, initial-scale=1.0, user-scalable=no">  
     <title>sheet2gmap</title>
     <style>
       #map {
@@ -28,35 +28,36 @@
       }
     </style>
   </head>
-    <body>
+  <body>
     <div id="map"></div>
     <td><div id="sidebar"></div></td>
     <script src="constants.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=AIzaSyCdU73ueywFMak93ZHVIOjhnYflOTpScnU&callback=initMap" async defer></script>
-    <script>
+  <script>
       var map;
       var marker = [];
       var infoWindow = [];
       var windowOpened;
 
-      function parseData(data) {
-        var keys = data.values[0];
-        var markerData = [];
-        data.values.forEach(function(value, i) {
+function parseData(data) {
+      var keys = data.values[0];
+      var markerData = [];
+      data.values.forEach(function(value, i) {
           if (i > 0) {
             var hash = {};
             value.forEach(function(d, j) {
               hash[keys[j]] = d;
             });
-            markerData.push(hash);
-          }
-        });
+         markerData.push(hash);
+       }
+         });
         return markerData;
-      }
+}
 
+  //★★★  
 function initMap() {       
         var target = document.getElementById('map');
-	navigator.geolocation.getCurrentPosition(function(position) {
+    navigator.geolocation.getCurrentPosition(function(position) {
         // 緯度経度の取得
   　　  var latlng1 = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 	var centerp = {lat:position.coords.latitude, lng:position.coords.longitude};
@@ -79,14 +80,8 @@ function initMap() {
           marker_opts.animation = google.maps.Animation.DROP ;
 
       var marker = new google.maps.Marker(marker_opts);
-	  //★★★
+ //★★★
 	  
-	
- //   　var mark = new google.maps.Marker({
-  //         position: latlng1,
-  //            map: map
-  // });
-	
         var request = new XMLHttpRequest();
         request.open('GET', `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/sheet1?key=${API_KEY}`, true);
         request.responseType = 'json';
@@ -98,12 +93,15 @@ function initMap() {
         };
 
         request.send(); 
+		
 }, function() {
         alert('位置情報取得に失敗しました');
     });
 }
-	    
- function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+ //★★★  
+	  
+	  
+function handleLocationError(browserHasGeolocation, infoWindow, pos) {
   infoWindow.setPosition(pos);
   infoWindow.setContent(
     browserHasGeolocation
@@ -112,9 +110,8 @@ function initMap() {
   );
   infoWindow.open(map);
 }    
-	    
-      
-      function addMarker(i, data) {
+
+function addMarker(i, data) {
         var markerLatLng = new google.maps.LatLng({
           lat: Number(data['緯度']),
           lng: Number(data['経度'])
@@ -130,9 +127,9 @@ function initMap() {
         });
 
         markerEvent(i);
-      }
+}
 
-      function setData(markerData){
+function setData(markerData){
         var sidebar_html = "";
         for (var i = 0; i < markerData.length; i++) {
           var latitude = markerData[i]['緯度'];
@@ -144,21 +141,21 @@ function initMap() {
         }
 
         document.getElementById("sidebar").innerHTML = `<a target="_blank" href="https://script.google.com/macros/s/AKfycbyEAVT8d2mG04Pp9-Kl1-Q6mNcnjQvxDahTBfxSJoOr/dev">電柱検索</a><br /><br />` + sidebar_html;
-      }
+ }
 
-      function markerEvent(i) {
+function markerEvent(i) {
         marker[i].addListener('click', function() {
           openWindow(i);
         });
-      }
+}
 
-      function openWindow(i) {
+function openWindow(i) {
         if(windowOpened){
           windowOpened.close();
         }
         infoWindow[i].open(map, marker[i]);
         windowOpened = infoWindow[i];
-      }
+}
     </script>
   </body>
 </html>
