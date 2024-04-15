@@ -154,27 +154,22 @@ function addMarker(i, data) {
             txt = 'H';
           }	
  if (data['pic'] === '1'){
-	  Color = '#FF0000';
+            label3 =  labe1;
           } else {
-	  Color = '#0033FF';
-          }	
-	
+            label3 =  label2;
+          }		
     marker[i] = new google.maps.Marker({
           position: markerLatLng,
           map: map,
 	  icon: {
-		fillColor: Color,                //塗り潰し色
+		fillColor: "#FF0000",                //塗り潰し色
 		fillOpacity: 0.8,                    //塗り潰し透過率
 		path: google.maps.SymbolPath.CIRCLE, //円を指定
 		scale: 8,                           //円のサイズ
 		strokeColor: "#FF0000",              //枠の色
 		strokeWeight: 1.0                    //枠の透過率
 	        };
-	  label: {
-		text: txt,                           //ラベル文字
-		color: '#FFFFFF',                    //文字の色
-		fontSize: '10px'                     //文字のサイズ
-	       }
+	  label: label3
      });
 
    var info = '<div style="font-size:12px;font-weight:bold;margin-bottom:12px;">' + data['名称'] +'</div>' + data['pic'] +'</div>';
