@@ -112,7 +112,7 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 }    
 
 function addMarker(i, data) {
-    var icon1= {
+    const icon1= {
 		fillColor: "#FF0000",                //塗り潰し色
 		fillOpacity: 0.8,                    //塗り潰し透過率
 		path: google.maps.SymbolPath.CIRCLE, //円を指定
@@ -120,7 +120,7 @@ function addMarker(i, data) {
 		strokeColor: "#FF0000",              //枠の色
 		strokeWeight: 1.0                    //枠の透過率
 	        },
-   var label1: {
+   const label1: {
 		text: 'P',                           //ラベル文字
 		color: '#FFFFFF',                    //文字の色
 		fontSize: '10px'                     //文字のサイズ
