@@ -136,7 +136,7 @@ function addMarker(i, data) {
 		fillColor: "#FF0000",                //塗り潰し色
 		fillOpacity: 0.8,                    //塗り潰し透過率
 		path: google.maps.SymbolPath.CIRCLE, //円を指定
-		scale: 8,                           //円のサイズ
+		scale: 15,                           //円のサイズ
 		strokeColor: "#FF0000",              //枠の色
 		strokeWeight: 1.0                    //枠の透過率
 	        };
@@ -145,11 +145,15 @@ function addMarker(i, data) {
 		color: '#FFFFFF',                    //文字の色
 		fontSize: '10px'                     //文字のサイズ
 	       }; 
-
+if (markerData.[i]['pic'] === '1'){
+            icon3 = icon1;
+          } else {
+            icon3 = icon2;
+          }
     marker[i] = new google.maps.Marker({
           position: markerLatLng,
           map: map,
-	  icon: icon1,
+	  icon: icon3,
 	  label: label1, 
      });
 
