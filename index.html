@@ -145,16 +145,12 @@ function addMarker(i, data) {
 		color: '#FFFFFF',                    //文字の色
 		fontSize: '10px'                     //文字のサイズ
 	       }; 
-if (data['pic'] = '1'){
-            label3 = label1;
-          } else {
-            label3 = label2;
-          }
+
     marker[i] = new google.maps.Marker({
           position: markerLatLng,
           map: map,
 	  icon: icon1,
-	  label: label3, 
+	  label: labe2, 
      });
 
    var info = '<div style="font-size:12px;font-weight:bold;margin-bottom:12px;">' + data['名称'] +'</div>' + data['pic'] +'</div>';
