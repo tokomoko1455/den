@@ -173,7 +173,7 @@ function setData(markerData){
           addMarker(i, markerData[i]);
                 var name = markerData[i]['名称'];
                 var pic = markerData[i]['pic'];
-          sidebar_html += `<b>${i + 1}</b> <a href="javascript:openWindow(${i})">${name}<\/a><br />`;
+          sidebar_html += `<b>${i + 1}</b> <a href="javascript:openWindow(${i})">${name}+ '</a><br>' +${pic}<\/a><br />`;
         }
 
         document.getElementById("sidebar").innerHTML = `<a target="_blank" href="https://script.google.com/macros/s/AKfycbzn4lyzdKbuxaIzC-P68bHm6NW0B39JYCN8fkyqHiFTsY7PnKSJxSs_xRcaNQOAXYi4zQ/exec">加入者検索</a><br /><br />` + sidebar_html;
