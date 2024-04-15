@@ -112,18 +112,18 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 }    
 
 function addMarker(i, data) {
-        icon1= {
+    var icon1= {
 		fillColor: "#FF0000",                //塗り潰し色
 		fillOpacity: 0.8,                    //塗り潰し透過率
 		path: google.maps.SymbolPath.CIRCLE, //円を指定
-		scale: 16,                           //円のサイズ
+		scale: 8,                           //円のサイズ
 		strokeColor: "#FF0000",              //枠の色
 		strokeWeight: 1.0                    //枠の透過率
 	        },
-	label: {
-		text: 'A',                           //ラベル文字
+   var label1: {
+		text: 'P',                           //ラベル文字
 		color: '#FFFFFF',                    //文字の色
-		fontSize: '20px'                     //文字のサイズ
+		fontSize: '10px'                     //文字のサイズ
 	       }	
 	
   var markerLatLng = new google.maps.LatLng({
@@ -134,6 +134,7 @@ function addMarker(i, data) {
           position: markerLatLng,
           map: map,
 	  icon: icon1,
+	  label: label1,  
      });
 
    var info = '<div style="font-size:12px;font-weight:bold;margin-bottom:12px;">' + data['名称'] + '</div>';
