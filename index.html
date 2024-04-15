@@ -146,15 +146,15 @@ function addMarker(i, data) {
 		fontSize: '10px'                     //文字のサイズ
 	       }; 
 if (markerData.[i]['pic'] === '1'){
-            icon3 = icon1;
+            label3 = label1;
           } else {
-            icon3 = icon2;
+            label3 = label2;
           }
     marker[i] = new google.maps.Marker({
           position: markerLatLng,
           map: map,
-	  icon: icon3,
-	  label: label1, 
+	  icon: icon1,
+	  label: label3, 
      });
 
    var info = '<div style="font-size:12px;font-weight:bold;margin-bottom:12px;">' + data['名称'] +'</div>' + data['pic'] +'</div>';
