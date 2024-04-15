@@ -116,6 +116,8 @@ function addMarker(i, data) {
           lat: Number(data['緯度']),
           lng: Number(data['経度'])
   });
+ const icon3
+ const label3	
     const icon1 = {
 		fillColor: "#FF0000",                //塗り潰し色
 		fillOpacity: 0.8,                    //塗り潰し透過率
@@ -144,15 +146,15 @@ function addMarker(i, data) {
 		fontSize: '10px'                     //文字のサイズ
 	       }; 
 if (data['pic'] === '1'){
-            labe3= label1;
+            label3= label1;
           } else {
-            labe3 = label2;
+            label3 = label2;
           }
 
     marker[i] = new google.maps.Marker({
           position: markerLatLng,
           map: map,
-	  icon: icon2,
+	  icon: icon1,
 	  label: label3, 
      });
 
