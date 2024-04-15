@@ -38,7 +38,8 @@
       var marker = [];
       var infoWindow = [];
       var windowOpened;
-
+      var txt;
+	  
 function parseData(data) {
       var keys = data.values[0];
       var markerData = [];
@@ -145,13 +146,18 @@ function addMarker(i, data) {
 		color: '#FFFFFF',                    //文字の色
 		fontSize: '10px'                     //文字のサイズ
 	       }; 
-
+	
+txt = if (1 = 1){
+            'P';
+          } else {
+            'H';
+          }
     marker[i] = new google.maps.Marker({
           position: markerLatLng,
           map: map,
 	  icon: icon1,
 	  label: {
-		text:'P',                           //ラベル文字
+		text: txt,                           //ラベル文字
 		color: '#FFFFFF',                    //文字の色
 		fontSize: '10px'                     //文字のサイズ
 	       }
