@@ -146,10 +146,10 @@ function addMarker(i, data) {
           lng: Number(data['経度'])
   });
  // マーカーアイコンのセット
-            if (markerData[i]['pic'] === '2'){
-	      label = label1;
+            if (markerData[i]['pic'] === '1'){
+	      label = label2;
             } else {
-	      label = label2; 
+	      label = label1; 
            }	
     marker[i] = new google.maps.Marker({
           position: markerLatLng,
