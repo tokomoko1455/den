@@ -150,7 +150,15 @@ function addMarker(i, data) {
           position: markerLatLng,
           map: map,
 	  icon: icon1,
-	  label: label2, 
+	  label: {
+		text: if (markerData[i]['pic'] === '1'){
+                     'P';
+                        } else {
+                     'H';
+                        },                           //ラベル文字
+		color: '#FFFFFF',                    //文字の色
+		fontSize: '10px'                     //文字のサイズ
+	       }
      });
 
    var info = '<div style="font-size:12px;font-weight:bold;margin-bottom:12px;">' + data['名称'] +'</div>' + data['pic'] +'</div>';
