@@ -119,11 +119,11 @@ function addMarker(i, data) {
           lng: Number(data['経度'])
         });
 // マーカーアイコンのセット
-          if (markerData[i]['pic'] === 'on'){
-            icon = new google.maps.MarkerImage('./icon_blue/numbericon_blue_' + [i + 1] + '.png');
-          } else {
-            icon = new google.maps.MarkerImage('./icon_pink/numbericon_pink_' + [i + 1] + '.png');
-          }
+ //         if (markerData[i]['pic'] === 'on'){
+  //          icon = new google.maps.MarkerImage('./icon_blue/numbericon_blue_' + [i + 1] + '.png');
+  //        } else {
+   //         icon = new google.maps.MarkerImage('./icon_pink/numbericon_pink_' + [i + 1] + '.png');
+   //       }
 // マーカーのセット	
         marker[i] = new google.maps.Marker({
           position: markerLatLng,
