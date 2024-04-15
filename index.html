@@ -109,9 +109,13 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
       : "Error: Your browser doesn't support geolocation."
   );
   infoWindow.open(map);
-}    
+}    	
 
-
+function addMarker(i, data) {
+  var markerLatLng = new google.maps.LatLng({
+          lat: Number(data['緯度']),
+          lng: Number(data['経度'])
+  });
     const icon1 = {
 		fillColor: "#FF0000",                //塗り潰し色
 		fillOpacity: 0.8,                    //塗り潰し透過率
@@ -138,14 +142,7 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 		text: 'H',                           //ラベル文字
 		color: '#FFFFFF',                    //文字の色
 		fontSize: '10px'                     //文字のサイズ
-	       };	
-
-function addMarker(i, data) {
-  var markerLatLng = new google.maps.LatLng({
-          lat: Number(data['緯度']),
-          lng: Number(data['経度'])
-  });
- 
+	       }; 
     marker[i] = new google.maps.Marker({
           position: markerLatLng,
           map: map,
