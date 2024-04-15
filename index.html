@@ -35,6 +35,7 @@
     <script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=AIzaSyCdU73ueywFMak93ZHVIOjhnYflOTpScnU&callback=initMap" async defer></script>
   <script>
       var map;
+      var icon;  
       var marker = [];
       var infoWindow = [];
       var windowOpened;
@@ -112,7 +113,7 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 }    
 
 function addMarker(i, data) {
-	var icon;
+
   // マーカー位置セット	
         var markerLatLng = new google.maps.LatLng({
           lat: Number(data['緯度']),
