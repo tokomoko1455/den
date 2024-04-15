@@ -150,14 +150,23 @@ function addMarker(i, data) {
 
  if (data['pic'] === '1'){
             txt = 'P';
+	 Color = ''#FF0000'';
           } else {
             txt = 'H';
+	  Color = ''#0055FF'';
           }	
 
     marker[i] = new google.maps.Marker({
           position: markerLatLng,
           map: map,
-	  icon: icon2,
+	  icon: {
+		fillColor: '#0055FF' ,                //塗り潰し色
+		fillOpacity: 0.8,                    //塗り潰し透過率
+		path: google.maps.SymbolPath.CIRCLE, //円を指定
+		scale: 15,                           //円のサイズ
+		strokeColor: '#FFFFFF' ,              //枠の色
+		strokeWeight: 1.0                    //枠の透過率
+	        },
 	  label: {
 		text: txt,                           //ラベル文字
 		color: '#FFFFFF',                    //文字の色
