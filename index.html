@@ -118,7 +118,7 @@ function addMarker(i, data) {
           lng: Number(data['経度'])
         });
  // マーカーアイコンのセット
-          if (markerData[i]['pic'] === 'on'){
+          if (markerData.results[i]['pic'] === 'on'){
             icon = new google.maps.MarkerImage('./icon_blue/numbericon_blue_' + [i + 1] + '.png');
           } else {
             icon = new google.maps.MarkerImage('./icon_pink/numbericon_pink_' + [i + 1] + '.png');
@@ -131,13 +131,13 @@ function addMarker(i, data) {
         });
 
          // 吹き出しの追加
-	　var name = markerData[i]['名称'];
+	　var name = markerData.results[i]['名称'];
 
          // var url = markerData[i]['url'];
          // var tag = markerData[i]['tag'];
          // var img = markerData[i]['img'];
 
-          if (markerData[i]['pic'] === 'on'){
+          if (markerData.results[i]['pic'] === 'on'){
             var setHtml = '<a href=' + url + ' target="right">' + name + '</a><br><br>' + tag + '<br><img src=' + img + ' width="200" height="150"><br>'
           } else {
             var setHtml = '<a href=' + url + ' target="right">' + name + '</a><br><br>' + tag + '<br><br>'
