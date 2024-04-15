@@ -68,18 +68,18 @@ function initMap() {
         });
 
     //////////////////////////////
-    // Marker作成
+    // 現在地Marker作成
     //////////////////////////////
 
-//      var marker_opts = {};
-//          marker_opts.map       = map ;
-//          marker_opts.position  = latlng1 ;
-//          marker_opts.title     = "title" ;
-//          marker_opts.icon      = "https://www.google.com/mapfiles/arrow.png";
- //         marker_opts.shadow    = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
-//          marker_opts.animation = google.maps.Animation.DROP ;
+      var marker_opts = {};
+          marker_opts.map       = map ;
+          marker_opts.position  = latlng1 ;
+          marker_opts.title     = "title" ;
+          marker_opts.icon      = "https://www.google.com/mapfiles/arrow.png";
+          marker_opts.shadow    = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+          marker_opts.animation = google.maps.Animation.DROP ;
 
-//      var marker = new google.maps.Marker(marker_opts);
+      var marker = new google.maps.Marker(marker_opts);
  //★★★
 	  
         var request = new XMLHttpRequest();
@@ -112,25 +112,37 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 }    
 
 function addMarker(i, data) {
-	var icon;
- // マーカー位置セット
+     // マーカー位置セット	
         var markerLatLng = new google.maps.LatLng({
           lat: Number(data['緯度']),
           lng: Number(data['経度'])
         });
-// マーカーアイコンのセット
-          if (data['pic'] === 'on'){
-            icon = "https://www.google.com/mapfiles/arrow.png";
+ // マーカーアイコンのセット
+          if (markerData[i]['pic'] === 'on'){
+            icon = new google.maps.MarkerImage('./icon_blue/numbericon_blue_' + [i + 1] + '.png');
           } else {
             icon = new google.maps.MarkerImage('./icon_pink/numbericon_pink_' + [i + 1] + '.png');
           }
-// マーカーのセット
+          // マーカーのセット	
         marker[i] = new google.maps.Marker({
-           position: markerLatLng,          // マーカーを立てる位置を指定
+　　　　　　　position: markerLatLng,          // マーカーを立てる位置を指定
             map: map,                        // マーカーを立てる地図を指定
             icon: icon                       // アイコン指定
         });
 
+         // 吹き出しの追加
+	　var name = markerData[i]['名称'];
+
+         // var url = markerData[i]['url'];
+         // var tag = markerData[i]['tag'];
+         // var img = markerData[i]['img'];
+
+          if (markerData[i]['pic'] === 'on'){
+            var setHtml = '<a href=' + url + ' target="right">' + name + '</a><br><br>' + tag + '<br><img src=' + img + ' width="200" height="150"><br>'
+          } else {
+            var setHtml = '<a href=' + url + ' target="right">' + name + '</a><br><br>' + tag + '<br><br>'
+          }
+	
         var info = '<div style="font-size:12px;font-weight:bold;margin-bottom:12px;">' + data['名称'] + '</div>';
         infoWindow[i] = new google.maps.InfoWindow({
           content: info
@@ -141,18 +153,20 @@ function addMarker(i, data) {
 
 function setData(markerData){
         var sidebar_html = "";
+	var icon;
         for (var i = 0; i < markerData.length; i++) {
+	  // マーカー位置セット	
           var latitude = markerData[i]['緯度'];
           if (!latitude) { continue; }
           addMarker(i, markerData[i]);
-          var name = markerData[i]['名称'];
-
+		
+ // サイドバー
           sidebar_html += `<b>${i + 1}</b> <a href="javascript:openWindow(${i})">${name}<\/a><br />`;
         }
 
         document.getElementById("sidebar").innerHTML = `<a target="_blank" href="https://script.google.com/macros/s/AKfycbzn4lyzdKbuxaIzC-P68bHm6NW0B39JYCN8fkyqHiFTsY7PnKSJxSs_xRcaNQOAXYi4zQ/exec">加入者検索</a><br /><br />` + sidebar_html;
  }
-
+   // マーカーにクリックイベントを追加
 function markerEvent(i) {
         marker[i].addListener('click', function() {
           openWindow(i);
