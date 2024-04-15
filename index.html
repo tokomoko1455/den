@@ -111,7 +111,7 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
   infoWindow.open(map);
 }    
 
-function addMarker(i, data) {
+
     const icon1 = {
 		fillColor: "#FF0000",                //塗り潰し色
 		fillOpacity: 0.8,                    //塗り潰し透過率
@@ -140,7 +140,7 @@ function addMarker(i, data) {
 		fontSize: '10px'                     //文字のサイズ
 	       };	
 
-	
+function addMarker(i, data) {
   var markerLatLng = new google.maps.LatLng({
           lat: Number(data['緯度']),
           lng: Number(data['経度'])
