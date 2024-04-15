@@ -35,7 +35,6 @@
     <script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=AIzaSyCdU73ueywFMak93ZHVIOjhnYflOTpScnU&callback=initMap" async defer></script>
   <script>
       var map;
-      var icon;  
       var marker = [];
       var infoWindow = [];
       var windowOpened;
@@ -76,7 +75,7 @@ function initMap() {
           marker_opts.map       = map ;
           marker_opts.position  = latlng1 ;
           marker_opts.title     = "title" ;
-          marker_opts.icon      = "icon";
+          marker_opts.icon      = "https://www.google.com/mapfiles/arrow.png";
           marker_opts.shadow    = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
           marker_opts.animation = google.maps.Animation.DROP ;
 
@@ -113,23 +112,13 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 }    
 
 function addMarker(i, data) {
-
-  // マーカー位置セット	
         var markerLatLng = new google.maps.LatLng({
           lat: Number(data['緯度']),
           lng: Number(data['経度'])
         });
- // マーカーアイコンのセット
-  //         if (data.['pic'] === 'on'){
-   //          icon = new google.maps.MarkerImage('./icon_blue/numbericon_blue_' + [i + 1] + '.png');
-    //       } else {
-     //        icon = new google.maps.MarkerImage('./icon_pink/numbericon_pink_' + [i + 1] + '.png');
-       //    }
- // マーカーのセット
         marker[i] = new google.maps.Marker({
-          position: markerLatLng,   // マーカーを立てる位置を指定
-          map: map,                 // マーカーを立てる地図を指定
-	  icon: icon  	            // アイコン指定
+          position: markerLatLng,
+          map: map
         });
 
         var info = '<div style="font-size:12px;font-weight:bold;margin-bottom:12px;">' + data['名称'] + '</div>';
@@ -151,7 +140,7 @@ function setData(markerData){
           sidebar_html += `<b>${i + 1}</b> <a href="javascript:openWindow(${i})">${name}<\/a><br />`;
         }
 
-        document.getElementById("sidebar").innerHTML = `<a target="_blank" href="https://script.google.com/macros/s/AKfycbxaXInl4dBpavauU3shvT03unQwuJv_FOrBDu4VabeJFigmTuyPs1WEPTEqI4ZaXAVsDA/exec">電柱検索</a><br /><br />` + sidebar_html;
+        document.getElementById("sidebar").innerHTML = `<a target="_blank" href="https://script.google.com/macros/s/AKfycbzn4lyzdKbuxaIzC-P68bHm6NW0B39JYCN8fkyqHiFTsY7PnKSJxSs_xRcaNQOAXYi4zQ/exec">加入者検索</a><br /><br />` + sidebar_html;
  }
 
 function markerEvent(i) {
