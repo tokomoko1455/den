@@ -120,7 +120,7 @@ function addMarker(i, data) {
         });
 // マーカーアイコンのセット
  //         if (markerData[i]['pic'] === 'on'){
-  //          icon = new google.maps.MarkerImage('./icon_blue/numbericon_blue_' + [i + 1] + '.png');
+           icon = new google.maps.MarkerImage('./icon_blue/numbericon_blue_' + [i + 1] + '.png');
   //        } else {
    //         icon = new google.maps.MarkerImage('./icon_pink/numbericon_pink_' + [i + 1] + '.png');
    //       }
@@ -128,7 +128,7 @@ function addMarker(i, data) {
         marker[i] = new google.maps.Marker({
           position: markerLatLng,
           map: map
-//	　icon: icon  	
+	　icon: icon  	
         });
 
         var info = '<div style="font-size:12px;font-weight:bold;margin-bottom:12px;">' + data['名称'] + '</div>';
