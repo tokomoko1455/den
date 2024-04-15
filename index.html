@@ -146,8 +146,11 @@ function addMarker(i, data) {
 		color: '#FFFFFF',                    //文字の色
 		fontSize: '10px'                     //文字のサイズ
 	       }; 
-	
-txt = 'PH';
+ if (1 === 1){
+            txt = 'P';
+          } else {
+            txt = 'H';
+          }	
     marker[i] = new google.maps.Marker({
           position: markerLatLng,
           map: map,
