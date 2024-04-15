@@ -147,16 +147,14 @@ function addMarker(i, data) {
   });
  // マーカーアイコンのセット
           if (markerData[i]['pic'] === 'on'){
-            icon = icon1;
 	    label = label1;
           } else {
-            icon = icon2;
 	    label = label2; 
           }	
     marker[i] = new google.maps.Marker({
           position: markerLatLng,
           map: map,
-	  icon: icon,
+	  icon: icon1,
 	  label: label,  
      });
 
