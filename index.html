@@ -75,7 +75,7 @@ function initMap() {
           marker_opts.map       = map ;
           marker_opts.position  = latlng1 ;
           marker_opts.title     = "title" ;
-          marker_opts.icon      = "https://www.google.com/mapfiles/arrow.png";
+           //marker_opts.icon1      = "https://www.google.com/mapfiles/arrow.png";
           marker_opts.shadow    = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
           marker_opts.animation = google.maps.Animation.DROP ;
 
@@ -112,13 +112,23 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 }    
 
 function addMarker(i, data) {
+	var icon;
+  // マーカー位置セット	
         var markerLatLng = new google.maps.LatLng({
           lat: Number(data['緯度']),
           lng: Number(data['経度'])
         });
+ // マーカーアイコンのセット
+          if (data.['pic'] === 'on'){
+            icon = new google.maps.MarkerImage('./icon_blue/numbericon_blue_' + [i + 1] + '.png');
+          } else {
+            icon = new google.maps.MarkerImage('./icon_pink/numbericon_pink_' + [i + 1] + '.png');
+          }
+ // マーカーのセット
         marker[i] = new google.maps.Marker({
-          position: markerLatLng,
-          map: map
+          position: markerLatLng,   // マーカーを立てる位置を指定
+          map: map,                 // マーカーを立てる地図を指定
+	  icon: icon  	            // アイコン指定
         });
 
         var info = '<div style="font-size:12px;font-weight:bold;margin-bottom:12px;">' + data['名称'] + '</div>';
