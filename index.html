@@ -111,7 +111,16 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
   infoWindow.open(map);
 }    
 
-function addMarker(i, data) {
+
+
+function setData(markerData){
+        var sidebar_html = "";
+	var icon;
+        for (var i = 0; i < markerData.length; i++) {
+	  // マーカー位置セット	
+          var latitude = markerData[i]['緯度'];
+          if (!latitude) { continue; }
+
      // マーカー位置セット	
         var markerLatLng = new google.maps.LatLng({
           lat: Number(data['緯度']),
@@ -151,14 +160,6 @@ function addMarker(i, data) {
         markerEvent(i);
 }
 
-function setData(markerData){
-        var sidebar_html = "";
-	var icon;
-        for (var i = 0; i < markerData.length; i++) {
-	  // マーカー位置セット	
-          var latitude = markerData[i]['緯度'];
-          if (!latitude) { continue; }
-          addMarker(i, markerData[i]);
 		
  // サイドバー
           sidebar_html += `<b>${i + 1}</b> <a href="javascript:openWindow(${i})">${name}<\/a><br />`;
