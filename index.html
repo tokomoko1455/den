@@ -146,16 +146,16 @@ function addMarker(i, data) {
           lng: Number(data['経度'])
   });
  // マーカーアイコンのセット
-          if (markerData[i]['pic'] === 'on'){
-	    label = label1;
-          } else {
-	    label = label2; 
-          }	
+     //       if (markerData[i]['pic'] === 'on'){
+	 //     label = label1;
+    //        } else {
+	 //     label = label2; 
+      //      }	
     marker[i] = new google.maps.Marker({
           position: markerLatLng,
           map: map,
 	  icon: icon1,
-	  label: label,  
+	  label: label1,  
      });
 
    var info = '<div style="font-size:12px;font-weight:bold;margin-bottom:12px;">' + data['名称'] + '</div>';
@@ -171,8 +171,8 @@ function setData(markerData){
           var latitude = markerData[i]['緯度'];
           if (!latitude) { continue; }
           addMarker(i, markerData[i]);
-          var name = markerData[i]['名称'];
-
+                var name = markerData[i]['名称'];
+                var pic = markerData[i]['pic'];
           sidebar_html += `<b>${i + 1}</b> <a href="javascript:openWindow(${i})">${name}<\/a><br />`;
         }
 
