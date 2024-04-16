@@ -156,7 +156,7 @@ function addMarker(i, data) {
 	  Col = '#0055FF' ;
           }	
 
- var fuki = + data['名称'] + '<br><a href=tel:' + data['tel1']+'>' + data['tel1'] + '</a>&emsp;<a href=tel:' + data['tel2']+' target="right">' + data['tel2'] + '</a>'
+ var fuki = + data['名称'] + '<br><a href=tel:' + data['tel1']+'>' + data['tel1'] + '</a>&emsp;<a href=tel:' + data['tel2']+'>' + data['tel2'] + '</a>'
 	
     marker[i] = new google.maps.Marker({
           position: markerLatLng,
@@ -176,7 +176,7 @@ function addMarker(i, data) {
 	       }
      });
 
-   var info = '<div style="font-size:12px;font-weight:bold;margin-bottom:12px;">' + fuki +;
+   var info = '<div style="font-size:12px;font-weight:bold;margin-bottom:12px;">' fuki ;
      infoWindow[i] = new google.maps.InfoWindow({
      content: info
      });
